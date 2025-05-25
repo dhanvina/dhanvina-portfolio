@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import FloatingGeometry from './3d/FloatingGeometry';
+import profileImage from '../assets/profile.jpg';
 
 const Scene = () => {
   return (
@@ -39,8 +40,9 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center">
-        <div className="max-w-4xl">
+      <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-between">
+        {/* Text Content */}
+        <div className="max-w-2xl">
           {/* Main heading with gradient */}
           <h1 className="text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#00ff9f] to-[#00f0ff]">
             Hi, I'm Dhanvina
@@ -48,11 +50,11 @@ const Hero = () => {
           
           {/* Role */}
           <h2 className="text-3xl font-semibold mb-6 text-gray-100">
-            AI Engineer & Full Stack Developer
+            AI Engineer
           </h2>
           
           {/* Description with custom styling */}
-          <p className="text-xl leading-relaxed mb-8 text-gray-300 max-w-2xl">
+          <p className="text-xl leading-relaxed mb-8 text-gray-300">
             Specializing in machine learning, deep learning, and building intelligent systems 
             that transform complex data into actionable insights.
           </p>
@@ -78,6 +80,20 @@ const Hero = () => {
               </span>
             ))}
           </div>
+        </div>
+
+        {/* Profile Image */}
+        <div className="hidden lg:block relative">
+          <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-[#00ff9f]/30 shadow-lg shadow-[#00ff9f]/20">
+            <img 
+              src={profileImage} 
+              alt="Dhanvina" 
+              className="w-full h-full object-cover object-center"
+              draggable="false"
+            />
+          </div>
+          {/* Decorative circle */}
+          <div className="absolute -inset-4 border-2 border-[#00ff9f]/20 rounded-full animate-spin-slow"></div>
         </div>
       </div>
     </section>
