@@ -38,7 +38,6 @@ jobs:
           npm run build
           touch dist/.nojekyll
           cp public/404.html dist/
-          cp public/index.html dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
