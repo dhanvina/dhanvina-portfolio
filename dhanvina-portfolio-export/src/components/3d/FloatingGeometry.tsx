@@ -1,13 +1,20 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Sphere, Line } from '@react-three/drei';
+import * as THREE from 'three';
+
+interface Vector3Array extends Array<number> {
+  0: number;
+  1: number;
+  2: number;
+}
 
 const NeuralNetwork = () => {
-  const groupRef = useRef<THREE.Group>();
+  const groupRef = useRef<THREE.Group>(null);
 
   // Create nodes for a simple neural network visualization
   const createNodes = () => {
-    const nodes = [];
+    const nodes: JSX.Element[] = [];
     const layers = [4, 6, 6, 4]; // Neural network architecture
     const spacing = 2;
     
@@ -19,7 +26,7 @@ const NeuralNetwork = () => {
           <Sphere
             key={`node-${layerIndex}-${i}`}
             args={[0.12, 16, 16]}
-            position={[layerOffset + layerIndex * spacing, y, 0]}
+            position={[layerOffset + layerIndex * spacing, y, 0] as Vector3Array}
           >
             <meshStandardMaterial
               color="#00ff9f"
@@ -37,7 +44,7 @@ const NeuralNetwork = () => {
 
   // Create connections between nodes
   const createConnections = () => {
-    const connections = [];
+    const connections: JSX.Element[] = [];
     const layers = [4, 6, 6, 4];
     const spacing = 2;
 
@@ -45,12 +52,12 @@ const NeuralNetwork = () => {
       const layerOffset = (layers.length - 1) / 2 * -spacing;
       for (let i = 0; i < layers[l]; i++) {
         for (let j = 0; j < layers[l + 1]; j++) {
-          const startPos = [
+          const startPos: Vector3Array = [
             layerOffset + l * spacing,
             (i - (layers[l] - 1) / 2) * 1.5,
             0
           ];
-          const endPos = [
+          const endPos: Vector3Array = [
             layerOffset + (l + 1) * spacing,
             (j - (layers[l + 1] - 1) / 2) * 1.5,
             0

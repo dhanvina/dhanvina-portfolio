@@ -6,7 +6,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 
-const App: React.FC = () => {
+function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <Hero />
@@ -17,6 +17,6 @@ const App: React.FC = () => {
       <Contact />
     </div>
   );
-};
+}
 
 export default App;
