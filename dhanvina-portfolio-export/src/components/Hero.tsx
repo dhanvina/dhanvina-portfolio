@@ -71,7 +71,7 @@ const Hero = () => {
           
           {/* Tech Stack Tags */}
           <div className="flex flex-wrap gap-3 mt-12">
-            {['Python', 'TensorFlow', 'PyTorch', 'React', 'Node.js', 'AWS'].map((tech) => (
+            {['Python', 'TensorFlow', 'PyTorch', 'Streamlit', 'AWS', 'Azure'].map((tech) => (
               <span 
                 key={tech}
                 className="px-4 py-2 rounded-full bg-[#1a2333] text-gray-300 text-sm border border-[#2a3343]"
