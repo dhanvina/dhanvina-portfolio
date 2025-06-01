@@ -6,6 +6,12 @@ export default defineConfig({
   base: '/dhanvina-portfolio/',
   build: {
     outDir: 'dist',
-    sourcemap: true
+    sourcemap: true,
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
   }
 });
